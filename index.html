@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Bungkus - Temukan kisah inspiratif Noel Raja Terakhir">
+        <title>Bungkus - Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- NAVIGATION BAR -->
+            <nav class="container-navbar" aria-label="Navigasi Utama">
+                <ul class="ul-navbar">
+                    <li class="li-navbar">
+                        <a href="index.html" class="a-navbar" aria-current="page">HOME</a>
+                    </li>
+                    <li class="li-navbar">
+                        <a href="abaout.html" class="a-navbar">ABOUT ME</a>
+                    </li>
+                    <li class="li-navbar">
+                        <a href="contact.html" class="a-navbar">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- NAVIGATION BAR END -->
+
+            <!-- HERO SECTION -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Selamat Datang di Bungkus web</h1>
+                    <p class="hero-subtitle">Cari Tau Tentang Noel Raja Terakhir</p>
+                    <div class="hero-buttons">
+                        <a href="abaout.html" class="hero-button primary">Pelajari Lebih Lanjut</a>
+                        <a href="contact.html" class="hero-button secondary">Hubungi Kami</a>
+                    </div>
+                </div>
+            </section>
+            <!-- HERO SECTION END -->
+
+            <!-- FEATURES SECTION -->
+            <section class="features-section">
+                <h2 class="section-title">Fitur Utama</h2>
+                <div class="features-grid" id="features-container">
+                    <!-- Features will be loaded from data.js -->
+                </div>
+            </section>
+            <!-- FEATURES SECTION END -->
+
+            <!-- TESTIMONIAL SECTION -->
+            <section class="testimonial-section">
+                <h2 class="section-title">JANGAN RAGU JANGAN BIMBANG</h2>
+                <div class="testimonial-card">
+                    <blockquote class="testimonial-text">
+                        "Kisah Noel Raja Terakhir cuma di sini!."
+                    </blockquote>
+                    <cite class="testimonial-author">- Pengikut setia</cite>
+                </div>
+            </section>
+            <!-- TESTIMONIAL SECTION END -->
+
+            <!-- CTA SECTION -->
+            <section class="cta-section">
+                <h2 class="cta-title">Siap Memulai Perjalanan?</h2>
+                <p class="cta-text">Kenal lah dengan Noel Raja Terakhir</p>
+                <a href="contact.html" class="cta-button">Mulai Sekarang</a>
+            </section>
+            <!-- CTA SECTION END -->
+
+            <!-- FOOTER -->
+            <footer class="container-footer">
+                <div class="footer-content">
+                    <h1 class="h1-footer">WELCOME TO THE BUNGKUS</h1>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="abaout.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <p class="footer-copyright">&copy; 2025 Bungkus.</p>
+                </div>
+            </footer>
+            <!-- FOOTER END -->
+        </div>
+
+        <script type="module">
+            import { noelFunctions } from './data.js';
+            
+            // Load features
+            document.addEventListener('DOMContentLoaded', () => {
+                const featuresContainer = document.getElementById('features-container');
+                const features = noelFunctions.getAllFeatures();
+                
+                features.forEach(feature => {
+                    const featureElement = document.createElement('div');
+                    featureElement.className = 'feature-card';
+                    featureElement.innerHTML = `
+                        <div class="feature-icon">${feature.icon}</div>
+                        <h3>${feature.title}</h3>
+                        <p>${feature.description}</p>
+                    `;
+                    featuresContainer.appendChild(featureElement);
+                });
+            });
+        </script>
+    </body>
+</html>
